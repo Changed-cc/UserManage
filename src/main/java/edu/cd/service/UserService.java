@@ -41,4 +41,12 @@ public interface UserService {
      * @return
      */
     public ArrayList<Users> getAllUsers();
+
+    /**
+     * 查询分页用户
+     * @param pageNow
+     * @param pageSize
+     * @return
+     */
+    public ArrayList<Users> getPageUsers(int pageNow,int pageSize);
 }

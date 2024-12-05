@@ -6,7 +6,6 @@ import edu.cd.exception.IdIsNullException;
 import java.util.ArrayList;
 
 public interface UserDao {
-
 	/**
 	 * 添加单个用户
 	 * @param users
@@ -42,5 +41,13 @@ public interface UserDao {
 	 * @return
 	 */
 	public ArrayList<Users> getAllUsers();
+
+	/**
+	 * 查询分页用户
+	 * @param pageNow
+	 * @param pageSize
+	 * @return
+	 */
+	public ArrayList<Users> getPageUsers(int pageNow,int pageSize);
 
 }

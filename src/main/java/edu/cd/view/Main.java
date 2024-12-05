@@ -16,18 +16,17 @@ public class Main extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter out = response.getWriter();
 
-		out.println("<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'><html><head><title>main</title>");
+		out.println("<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'><html><head><title>Main</title>");
 		out.println("<meta http-equiv='keywords' content='keyword1,keyword2,keyword3'><meta http-equiv='description' content='this is my page'><meta http-equiv='content-type' content='text/html; charset=UTF-8'>");
 		out.println("<link rel='stylesheet' type='text/css' href='css/1.css'>");
-		out.println("</head>");
-		out.println("<body>");
+		out.println("</head><body>");
 		out.println("<img src='imgs/conch.gif' width='150px' height='50px' />");
-		out.println("<hr/>");
+		out.println("<hr />");
 		out.println("<h1>用户管理</h1>");
-		out.println("<a href='/UserManage/UserController'>管理用户</a><br />");
-		out.println("<a href='??'>添加用户</a><br />");
-		out.println("<a href='??'>退出系统</a><br />");
-		out.println("<hr/>");
+		out.println("<a href='/UserManage/UserController?type=getPageUsers'>管理用户</a><br />");
+		out.println("<a href='/UserManage/UserController?type=??'>添加用户</a><br />");
+		out.println("<a href='/UserManage/UserController?type=??'>退出系统</a><br />");
+		out.println("<hr />");
 		out.println("<img src='imgs/fish.gif' width='150px' height='50px' />");
 		out.println("</body></html>");
 
@@ -37,7 +36,6 @@ public class Main extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		this.doGet(request, response);
 	}
 

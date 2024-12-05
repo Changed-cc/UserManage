@@ -20,8 +20,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int delUserById(Integer id) throws IdIsNullException {
-		// TODO Auto-generated method stub
-		return 0;
+		return userDao.delUserById(id);
 	}
 
 	@Override
@@ -38,6 +37,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public ArrayList<Users> getAllUsers() {
 		return userDao.getAllUsers();
+	}
+
+	@Override
+	public ArrayList<Users> getPageUsers(int pageNow, int pageSize) {
+		return userDao.getPageUsers(pageNow, pageSize);
 	}
 
 }
