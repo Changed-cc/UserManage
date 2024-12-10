@@ -32,6 +32,14 @@
     <servlet-name>Manage</servlet-name>
     <servlet-class>edu.cd.view.Manage</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SearchView</servlet-name>
+    <servlet-class>edu.cd.view.ManageAction.SearchView</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchSuccess</servlet-name>
+    <servlet-class>edu.cd.view.ManageAction.SearchSuccess</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
@@ -65,6 +73,15 @@
     <servlet-name>Manage</servlet-name>
     <url-pattern>/Manage</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchView</servlet-name>
+    <url-pattern>/SearchView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchSuccess</servlet-name>
+    <url-pattern>/SearchSuccess</url-pattern>
+  </servlet-mapping>
+
 
   <welcome-file-list>
     <welcome-file>Login</welcome-file>

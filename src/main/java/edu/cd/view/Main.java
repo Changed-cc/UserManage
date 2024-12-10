@@ -24,8 +24,8 @@ public class Main extends HttpServlet {
 		out.println("<hr />");
 		out.println("<h1>用户管理</h1>");
 		out.println("<a href='/UserManage/UserController?type=getPageUsers'>管理用户</a><br />");
-		out.println("<a href='/UserManage/UserController?type=??'>添加用户</a><br />");
-		out.println("<a href='/UserManage/UserController?type=??'>退出系统</a><br />");
+		out.println("<a href='/UserManage/UserController?type=gotoSearchView'>查询用户</a><br />");
+		out.println("<a href='/UserManage/UserController?type=gotoUpdateUser'>更新用户信息</a><br />");
 		out.println("<hr />");
 		out.println("<img src='imgs/fish.gif' width='150px' height='50px' />");
 		out.println("</body></html>");
