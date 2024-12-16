@@ -52,9 +52,13 @@ public class UserController extends HttpServlet {
 			pageSize = Integer.parseInt(ps);
 
 		ArrayList<Users> users = userService.getPageUsers(pageNow, pageSize);
+		int recordCount = userService.getRecordCount();
+		int pageCount = recordCount % pageSize == 0 ? recordCount / pageSize
+				: recordCount / pageSize + 1;
 		request.setAttribute("users", users);
 		request.setAttribute("pageNow", pageNow);
 		request.setAttribute("pageSize", pageSize);
+		request.setAttribute("pageCount", pageCount);
 		request.getRequestDispatcher("/Manage").forward(request, response);
 	}
 
@@ -81,6 +85,4 @@ public class UserController extends HttpServlet {
 			throws ServletException, IOException {
 		this.doGet(request, response);
 	}
-
-
 }

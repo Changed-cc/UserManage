@@ -50,4 +50,9 @@ public interface UserDao {
 	 */
 	public ArrayList<Users> getPageUsers(int pageNow,int pageSize);
 
+	/**
+	 * 查询总记录数
+	 * @return
+	 */
+	public int getRecordCount();
 }

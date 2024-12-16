@@ -20,16 +20,11 @@ public class SearchView extends HttpServlet {
         out.println("<meta http-equiv='keywords' content='keyword1,keyword2,keyword3'><meta http-equiv='description' content='this is my page'><meta http-equiv='content-type' content='text/html; charset=UTF-8'>");
         out.println("<link rel='stylesheet' type='text/css' href='css/1.css'>");
         out.println("</head><body><h1>查询用户</h1>");
-        out.println("<form action='/UserManage/LoginController' method='post'>");
+        out.println("<form action='/UserManage/UserController' method='post'>");
         out.println("<label for='username'>用户名：</label><input type='text' name='user' id='username' /><br />");
         out.println("<label for='password'>密&nbsp;&nbsp;&nbsp;码：</label><input type='password' name='pwd' id='password' /><br />");
         out.println("<input type='submit' value='查询' /><input type='reset' value='重置' />");
         out.println("</form>");
-        out.println("<script type='text/javascript'>");
-        out.println("function goToRegister() {");
-        out.println("  window.location.href = '/UserManage/SearchSuccess';");
-        out.println("}");
-        out.println("</script>");
         if (errMsg != null)
             out.println("<span>" + errMsg + "</span>");
         out.println("</body></html>");

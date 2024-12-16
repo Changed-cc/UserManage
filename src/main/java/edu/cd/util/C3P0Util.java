@@ -9,24 +9,20 @@ import java.sql.Statement;
 
 public class C3P0Util {
 
-	private static String driverClass;
-	private static String url;
-	private static String name;
-	private static String pwd;
-	private static ComboPooledDataSource cpds = new ComboPooledDataSource();
+	private static ComboPooledDataSource cpds = new ComboPooledDataSource("mysql");
 
 	static {
 
 		try {
-
-
+			cpds.setDriverClass("com.mysql.jdbc.Driver");
+			cpds.setJdbcUrl("jdbc:mysql://localhost:3306/test1?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&useSSL=false");
+			cpds.setUser("root");
+			cpds.setPassword("mySQL@123456");
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
-
 	}
 
-	public static Connection getConnection() {
+	public static Connection getConn() {
 
 		Connection conn = null;
 
@@ -40,34 +36,28 @@ public class C3P0Util {
 	}
 
 	public static void release(Connection conn, Statement ps, ResultSet rs) {
-		if (rs != null) {
-			try {
+
+		try {
+			// 6.关闭资源
+			if (rs != null) {
 				rs.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				rs = null; // 垃圾回收，上！
 			}
-			rs = null; // 垃圾回收，上！
-		}
-		if (ps != null) {
-			try {
+			if (ps != null) {
 				ps.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				ps = null; // 垃圾回收，上！
 			}
-			ps = null; // 垃圾回收，上！
-		}
-		if (conn != null) {
-			try {
+			if (conn != null) {
 				conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
+				conn = null; // ?
 			}
-			conn = null;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
 	public static void main(String[] args) {
-		System.out.println(getConnection());
+		System.out.println(getConn());
 	}
 
 }

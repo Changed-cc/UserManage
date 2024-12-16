@@ -40,6 +40,10 @@
     <servlet-name>SearchSuccess</servlet-name>
     <servlet-class>edu.cd.view.ManageAction.SearchSuccess</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>Pay</servlet-name>
+    <servlet-class>edu.cd.view.Pay</servlet-class>
+  </servlet>
 
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
@@ -80,6 +84,10 @@
   <servlet-mapping>
     <servlet-name>SearchSuccess</servlet-name>
     <url-pattern>/SearchSuccess</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Pay</servlet-name>
+    <url-pattern>/Pay</url-pattern>
   </servlet-mapping>
 
 

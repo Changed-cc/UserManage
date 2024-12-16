@@ -4,8 +4,8 @@ import edu.cd.dao.UserDao;
 import edu.cd.entity.Users;
 import edu.cd.exception.IdIsNullException;
 import edu.cd.util.Base64Util;
+import edu.cd.util.C3P0Util;
 import edu.cd.util.DBHelper;
-import edu.cd.util.JdbcUtil;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -85,7 +85,8 @@ public class UserDaoImpl implements UserDao {
 				res = false;
 			}
 			// 6.关闭资源
-			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+//			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+			C3P0Util.release(DBHelper.getConn(), DBHelper.getPs(), rs);
 		} catch (Exception e) {
 			// ...
 			e.printStackTrace();
@@ -133,7 +134,8 @@ public class UserDaoImpl implements UserDao {
 			}
 
 			// 6.关闭资源
-			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+//			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+			C3P0Util.release(DBHelper.getConn(), DBHelper.getPs(), rs);
 		} catch (Exception e) {
 			// ...
 			e.printStackTrace();
@@ -177,12 +179,38 @@ public class UserDaoImpl implements UserDao {
 			}
 
 			// 6.关闭资源
-			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+//			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+			C3P0Util.release(DBHelper.getConn(), DBHelper.getPs(), rs);
 		} catch (Exception e) {
 			// ...
 			e.printStackTrace();
 		}
 
 		return users;
+	}
+
+	@Override
+	public int getRecordCount() {
+		int res = -1;
+
+		try {
+			String sql = "select count(*) from users";
+			Integer[] params = null;
+			ResultSet rs = DBHelper.executeQuery(sql, params);
+			// 5.遍历结果集
+
+			if(rs.next()){
+				res=rs.getInt(1);
+			}
+
+			// 6.关闭资源
+//			JdbcUtil.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+			C3P0Util.release(DBHelper.getConn(), DBHelper.getPs(), rs);
+		} catch (Exception e) {
+			// ...
+			e.printStackTrace();
+		}
+
+		return res;
 	}
 }

@@ -44,4 +44,9 @@ public class UserServiceImpl implements UserService {
 		return userDao.getPageUsers(pageNow, pageSize);
 	}
 
+	@Override
+	public int getRecordCount() {
+		return userDao.getRecordCount();
+	}
+
 }
