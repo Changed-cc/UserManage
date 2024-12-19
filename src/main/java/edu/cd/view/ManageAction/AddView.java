@@ -14,8 +14,10 @@ public class AddView extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
 
-        out.println("<html><head><title>添加用户</title>");
-        out.println("<meta http-equiv='content-type' content='text/html; charset=UTF-8'>");
+        out.println("<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'><html><head><title>管理用户</title>");
+        out.println("<meta http-equiv='keywords' content='keyword1,keyword2,keyword3'><meta http-equiv='description' content='this is my page'><meta http-equiv='content-type' content='text/html; charset=UTF-8'>");
+        out.println("<link rel='stylesheet' type='text/css' href='css/1.css'>");
+        out.println("<script type='text/javascript' src='js/1.js'></script>");
         out.println("</head><body>");
         out.println("<h1>添加用户</h1>");
         out.println("<form action='/UserManage/UserController?type=addUser' method='post'>");
@@ -26,7 +28,7 @@ public class AddView extends HttpServlet {
         out.println("爱好: <input type='text' name='hobby'><br>");
         out.println("电话: <input type='text' name='tel'><br>");
         out.println("邮箱: <input type='text' name='email'><br>");
-        out.println("等级: <input type='number' name='grade' min='1' max='5' value='1'><br>");
+        out.println("成绩: <input type='number' name='grade' min='1' max='5' value='1'><br>");
         out.println("描述: <textarea name='description'></textarea><br>");
         out.println("<input type='submit' value='添加用户'>");
         out.println("</form>");

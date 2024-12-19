@@ -22,7 +22,7 @@ public class HttpDemo extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         res.setContentType("text/html;charset=utf-8");
         PrintWriter out = res.getWriter();
-        String username = req.getParameter("username");  //从请求参数中获取用户名
+        String username = req.getParameter("user");  //从请求参数中获取用户名
         if(username != null && !username.isEmpty()) {
             Cookie usernameCookie = new Cookie("username", username);
             res.addCookie(usernameCookie);
