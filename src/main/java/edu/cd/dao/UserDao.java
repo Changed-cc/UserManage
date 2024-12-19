@@ -26,7 +26,7 @@ public interface UserDao {
 	 * @param users
 	 * @return
 	 */
-	public int updateUser(Users users);
+	public int updateUser(Users users,Integer id);
 
 	/**
 	 * 用户登录

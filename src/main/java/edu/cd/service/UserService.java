@@ -20,14 +20,6 @@ public interface UserService {
      * @throws IdIsNullException
      */
     public int delUserById(Integer id) throws IdIsNullException;
-
-    /**
-     * 修改单个用户
-     * @param users
-     * @return
-     */
-    public int updateUser(Users users);
-
     /**
      * 用户登录
      * @param name
@@ -55,4 +47,11 @@ public interface UserService {
      * @return
      */
     public int getRecordCount();
+    /**
+     * 修改单个用户
+     *
+     * @param users
+     * @return
+     */
+    int updateUserById(Users users, int i);
 }

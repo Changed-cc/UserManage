@@ -17,6 +17,19 @@ public class Users implements Serializable{
 	private String email;
 	private int grade;
 	private String description;
+	public Users() {
+	}
+	public Users(String name, String nickName, String pwd,String gender, Date birthday, String hobby, String tel, String email, int i, String description) {
+		this.name = name;
+		this.nickName = nickName;
+		this.pwd = pwd;
+		this.gender = gender;
+		this.birthday = birthday;
+		this.hobby = hobby;
+		this.tel = tel;
+		this.email = email;
+		this.description = description;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -24,9 +24,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int updateUser(Users users) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateUserById(Users users, int i) {
+		return userDao.updateUser(users,i);
 	}
 
 	@Override

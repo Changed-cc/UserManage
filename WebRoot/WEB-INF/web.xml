@@ -37,6 +37,10 @@
     <servlet-class>edu.cd.view.ManageAction.SearchView</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>AddView</servlet-name>
+    <servlet-class>edu.cd.view.ManageAction.AddView</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>SearchSuccess</servlet-name>
     <servlet-class>edu.cd.view.ManageAction.SearchSuccess</servlet-class>
   </servlet>
@@ -80,6 +84,10 @@
   <servlet-mapping>
     <servlet-name>SearchView</servlet-name>
     <url-pattern>/SearchView</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddView</servlet-name>
+    <url-pattern>/AddView</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>SearchSuccess</servlet-name>

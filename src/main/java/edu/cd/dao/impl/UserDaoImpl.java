@@ -14,8 +14,28 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int addUser(Users users) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = -1;
+		try {
+			String sql = "INSERT INTO users (name, nickName, pwd, gender, birthday, hobby, tel, email, grade, description) " +
+					"VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+			String[] params = {
+					users.getName(),
+					users.getNickName(),
+					Base64Util.encode(users.getPwd()),  // 假设密码是经过 Base64 编码的
+					users.getGender(),
+					users.getBirthday().toString(),  // 这里假设 birthday 是 Date 类型
+					users.getHobby(),
+					users.getTel(),
+					users.getEmail(),
+					String.valueOf(users.getGrade()),
+					users.getDescription()
+			};
+
+			result = DBHelper.executeUpdate(sql, params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 
 	@Override
@@ -39,10 +59,31 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int updateUser(Users users) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int updateUser(Users users, Integer id) {
+		int result = -1;
+		try {
+			String sql = "UPDATE users SET name=?, nickName=?, pwd=?, gender=?, birthday=?, hobby=?, tel=?, email=?, grade=?, description=? WHERE id=?";
+			String[] params = {
+					users.getName(),
+					users.getNickName(),
+					Base64Util.encode(users.getPwd()),  // 假设密码是经过 Base64 编码的
+					users.getGender(),
+					users.getBirthday().toString(),
+					users.getHobby(),
+					users.getTel(),
+					users.getEmail(),
+					String.valueOf(users.getGrade()),
+					users.getDescription(),
+					String.valueOf(id)  // 通过 id 来定位更新的用户
+			};
+
+			result = DBHelper.executeUpdate(sql, params);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
+
 
 	@Override
 	public boolean checkUser(String name, String pwd) {
